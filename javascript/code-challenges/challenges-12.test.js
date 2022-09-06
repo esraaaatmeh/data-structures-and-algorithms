@@ -8,7 +8,7 @@ Write a function named replaceZeros that, given a string, uses Regex to replace 
 
 const replaceZeros = (string) => {
   // Solution code here...
-  //
+  return string.replace(/0/g, "zero");
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -21,6 +21,12 @@ If the PIN is four numerical digits long, return true. Otherwise, return false.
 
 const validatePin = (pin) => {
   // Solution code here...
+
+  if (/^(\d{4})$/.test(pin)) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -33,6 +39,16 @@ If the word is between 5 and 10 characters long, return true. Otherwise, return 
 
 const validateWord = (word) => {
   // Solution code here...
+  if (typeof word === "string") {
+    let word1 = word.replace(/[0-9]/g, "");
+    if (word1.length >= 5 && word1.length <= 10) {
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -45,6 +61,15 @@ If it does, return true. If not, return false.
 
 const hasNumber = (string) => {
   // Solution code here...
+  if (typeof string === "string") {
+    if (/^[A-Za-z]{1,}[0-9]{1,}/.test(string)) {
+      return true;
+    } else {
+      return false;
+    }
+  } else {
+    return false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -65,6 +90,13 @@ Note: if you ever need to validate an email using a regex in practice, the Inter
 
 const validateEmail = (email) => {
   // Solution code here...
+  let em = /^[A-Za-z0-9]+(\.[A-Za-z0-9]+)?@[a-z]+(\.net|\.com|\.org)$/;
+
+  if (em.test(email)) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -90,6 +122,13 @@ Return either true or false.
 
 const validatePhoneNumber = (phoneNumber) => {
   // Solution code here...
+  let phone = /^(\([0-9]{3,3}\)|[0-9]{3,3})[\- ]?[0-9]{3,3}[\- ]?[0-9]{4,4}$/;
+
+  if (phone.test(phoneNumber)) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 /* ------------------------------------------------------------------------------------------------
